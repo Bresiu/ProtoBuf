@@ -1,43 +1,25 @@
 package deserializer;
 
 import proto.generated.PolylineTest;
+import serializer.Encode;
 
 public class Decode {
-	private final PolylineTest.Line line;
+	private PolylineTest.Line line;
 
 	public Decode() {
-		System.out.println("decode");
-		this.line = this.buildLine();
+		System.out.println("encode");
+		this.line = this.getLine();
+		this.printPoints();
 	}
 
-	private PolylineTest.Point buildPointOne() {
-		PolylineTest.Point.Builder point = PolylineTest.Point.newBuilder();
-		point.setX(5);
-		point.setY(3);
-		point.setLabel("point 1");
-
-		return point.build();
-	}
-
-	private PolylineTest.Point buildPointTwo() {
-		PolylineTest.Point.Builder point = PolylineTest.Point.newBuilder();
-		point.setX(10);
-		point.setY(6);
-		point.setLabel("point 2");
-
-		return point.build();
-	}
-
-	private PolylineTest.Line buildLine() {
-		PolylineTest.Line.Builder line = PolylineTest.Line.newBuilder();
-		line.setStart(buildPointOne());
-		line.setEnd(buildPointTwo());
-		line.setLabel("line 1");
-
-		return line.build();
+	private void printPoints() {
+		System.out.println(this.line.getLabel());
+		System.out.println(this.line.toString());
+		System.out.println(this.line.getStart());
+		System.out.println(this.line.getEnd());
 	}
 
 	public PolylineTest.Line getLine() {
-		return line;
+		return new Encode().getLine();
 	}
 }
