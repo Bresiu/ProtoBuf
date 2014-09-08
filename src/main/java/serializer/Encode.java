@@ -6,7 +6,6 @@ public class Encode {
 	private final PolylineTest.Line line;
 
 	public Encode() {
-		System.out.println("encode");
 		this.line = this.buildLine();
 	}
 
