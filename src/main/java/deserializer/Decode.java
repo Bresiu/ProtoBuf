@@ -12,7 +12,6 @@ public class Decode {
 	}
 
 	private void printPoints() {
-		System.out.println(this.line.getLabel());
 		System.out.println(this.line.toString());
 		if(this.line.hasLabel()) {
 			System.out.println(this.line.getLabel());
