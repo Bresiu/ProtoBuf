@@ -4,9 +4,11 @@ import proto.generated.PolylineTest;
 
 public class Encode {
 	private final PolylineTest.Line line;
+	private final PolylineTest.Polyline polyline;
 
 	public Encode() {
 		this.line = this.buildLine();
+		this.polyline = this.buildPolyline();
 	}
 
 	private PolylineTest.Point buildPointOne() {
@@ -36,7 +38,21 @@ public class Encode {
 		return line.build();
 	}
 
+	private PolylineTest.Polyline buildPolyline() {
+		PolylineTest.Polyline.Builder polyline = PolylineTest.Polyline.newBuilder();
+		polyline.addPoint(buildPointOne());
+		polyline.addPoint(buildPointTwo());
+		polyline.addPoint(buildPointOne());
+		polyline.addPoint(buildPointTwo());
+
+		return polyline.build();
+	}
+
 	public PolylineTest.Line getLine() {
-		return line;
+		return this.line;
+	}
+
+	public PolylineTest.Polyline getPolyline() {
+		return this.polyline;
 	}
 }
